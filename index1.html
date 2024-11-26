@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khushi kumari - Web Developer Portfolio</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #ddd;
+        }
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero section styles */
+        #hero {
+            background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #555;
+        }
+
+        /* About section styles */
+        #about {
+            padding: 4rem 0;
+            background-color: #fff;
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .about-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+        .about-image {
+            flex: 1;
+        }
+        .about-image img {
+            max-width: 50%;
+            border-radius: 50%;
+        }
+
+        /* Projects section styles */
+        #projects {
+            padding: 4rem 0;
+            background-color: #f4f4f4;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .project-info {
+            padding: 1.5rem;
+        }
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+        }
+        .project-link {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .project-link:hover {
+            background-color: #555;
+        }
+
+        /* Contact section styles */
+        #contact {
+            padding: 4rem 0;
+            background-color: #333;
+            color: #fff;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background-color: #fff;
+            color: #333;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form button:hover {
+            background-color: #ddd;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 5rem;
+                flex-direction: column;
+                background-color: #333;
+                width: 50%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow:
+                    0 10px 27px rgba(0, 0, 0, 0.05);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-links li {
+                margin: 2.5rem 0;
+            }
+            .burger {
+                display: block;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Khushi Kumari
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Khushi Kumari</h1>
+                <p>Web Developer & Designer</p>
+                <a href="#contact" class="cta-button">Get in Touch</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Hello! I'm khushi, a passionate web developer with 5 years of experience creating beautiful and functional websites. I specialize in front-end development and have a keen eye for design.</p>
+                        <p>My skills include HTML, CSS, JavaScript, React, and Node.js. I'm always eager to learn new technologies and stay up-to-date with the latest web development trends.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="C:\Users\khush\Downloads\34533cf3-b446-4f2c-bc7b-cb25141b1dcb.jpg" alt="Khushi kumari" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Project 1" />
+                        <div class="project-info">
+                            <h3>E-commerce Website </h3>
+                            <p>A fully responsive e-commerce website built with Html and Css</p>
+                            <a href="https://github.com/khushi-hacker/amazon-clone" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Project 2" />
+                        <div class="project-info">
+                            <h3>Portfolio Template</h3>
+                            <p>A customizable portfolio template for creative professionals.</p>
+                            <a href="https://github.com/Kksingh21/portfolio.git" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Project 3" />
+                        <div class="project-info">
+                            <h3> Game App</h3>
+                            <p>A Game application using Html, Css and JavaScript.</p>
+                            <a href="https://github.com/khushi-hacker/java-Script24" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Me</h2>
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name" />
+                    <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email" />
+                    <textarea name="message" placeholder="Your Message" required aria-label="Your Message"></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024. Khushi kumari All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links li');
+
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            navLinks.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                }
+            });
+            burger.classList.toggle('toggle');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission (you would typically send this data to a server)
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            console.log('Form submitted:', data);
+            // Here you would typically send the data to a server
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            form.reset();
+        });
+    </script>
+</body>
+</html>
